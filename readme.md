@@ -1,31 +1,62 @@
-## GoIT Node.js Course Template Homework
+# GoIT Node.js Educational project REST-API
 
-Виконайте форк цього репозиторію для виконання домашніх завдань (2-6)
-Форк створить репозиторій на вашому http://github.com
+This project is the result of training at the Fullstack Bootcamp-23 course from the GoIT company. The application is an API for working with contacts and contains a complete set of CRUD-operations.
 
-Додайте ментора до колаборації
+***
+## This Project
+### On the back-end:
++ the app starts at `server.js`
++ add frameworks and packages in `package.json`
++ safely store app secrets in `.env`
++ all the logic of the API is in the file `routes/api/contacts`
++ query handler functions can be viewed in  `controllers/ contacts`'s files
+  
 
-Для кожної домашньої роботи створюйте свою гілку.
+***
+### Commands
 
-- hw02
-- hw03
-- hw04
-- hw05
-- hw06
+- `npm install` - installation project dependencies
+- `npm start` - start the server in production mode 
+- `npm run start:dev` - start the server in development mode
+- `npm run lint` - running a code check with eslint
+- `npm run lint:fix` - running a code check with eslint with automatic fixes for simple errors
 
-Кожна нова гілка для др повинна робитися з master
+***
+### Contacts
 
-Після того, як ви закінчили виконувати домашнє завдання у своїй гілці, необхідно зробити пулл-реквест (PR). Потім додати ментора для рев'ю коду. Тільки після того, як ментор заапрувить PR, ви можете виконати мердж гілки з домашнім завданням у майстер.
+```javaScript
+{
+  _id: ObjectId('6361266c5f57f090179ebece'),
+  name: "Allen Raymond",
+  email: "nulla.ante@vestibul.co.uk",
+  phone: "(992) 914-3792",
+  favorite: false
+}
+```
+Contacts are identified by unique identifier. Properties email and phone must be unique too. An additional description of the Contact structure is given in the table.
 
-Уважно читайте коментарі ментора. Виправте зауваження та зробіть коміт у гілці з домашнім завданням. Зміни підтягнуться у PR автоматично після того, як ви відправите коміт з виправленнями на github
-Після виправлення знову додайте ментора на рев'ю коду.
 
-- При здачі домашньої роботи є посилання на PR
-- JS-код чистий та зрозумілий, для форматування використовується Prettier
+Field   |  Type  |   Description              | isRequired
+--------|--------|----------------------------|------------
+_id     |string  |The contacts 's unique identifier|is required
+name    |string  |The contacts 's name.       |is required
+email   |string  |The contacts 's email.      |is required
+phone   |string  |The contacts 's phone.      |is required
+favorite|boolean |Is favorite contact.        |is not required
 
-### Команди:
-
-- `npm start` &mdash; старт сервера в режимі production
-- `npm run start:dev` &mdash; старт сервера в режимі розробки (development)
-- `npm run lint` &mdash; запустити виконання перевірки коду з eslint, необхідно виконувати перед кожним PR та виправляти всі помилки лінтера
-- `npm lint:fix` &mdash; та ж перевірка лінтера, але з автоматичними виправленнями простих помилок
+***
+### Main routes
++ **GET**    
+  *BASE_URL/api/contacts* - search and get all contacts
++ **GET**   
+  *BASE_URL/api/contacts/:contactId* - search and get one contact by id
++ **POST**   
+    *BASE_URL/api/contacts/* - add the contact to the collection
++ **PUT**  
+  *BASE_URL/api/contacts/:contactId* - update contact's infomation
++ **PATCH**     
+  *BASE_URL/api/contacts/:contactId/favorite* - update only fiels "favorite" in contact's infomation
++ **DELETE**  
+  *BASE_URL/api/contacts/:contactId* - delete one contact by id
+  
+ (^_^)  
