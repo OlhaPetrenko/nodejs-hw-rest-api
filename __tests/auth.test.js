@@ -37,8 +37,6 @@ describe("test auth routes", () => {
     };
 
     const userAdd = await User.create(newUser);
-    // console.log(userAdd);
-
     const loginUser = {
       email: "test@gmail.com",
       password: "123456",
@@ -48,7 +46,6 @@ describe("test auth routes", () => {
       .post("/api/users/login")
       .send(loginUser);
 
-    // console.log(response.body);
     expect(response.status).toBe(200);
     const { body } = response;
     expect(body.token).toBeTruthy();
