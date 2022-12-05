@@ -38,6 +38,7 @@ router.patch(
 );
 
 router.get("/verify/:verificationToken", ctrlWrapper(ctrl.verify));
+
 router.post(
   "/verify",
   validateBody(schemas.emailScheme),

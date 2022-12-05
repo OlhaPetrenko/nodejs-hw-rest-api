@@ -56,8 +56,9 @@ const loginScheme = Joi.object({
   password: Joi.string().min(6).required(),
   email: Joi.string().pattern(emailRegexp).required(),
 });
+
 const emailScheme = Joi.object({
-  password: Joi.string().min(6).required(),
+  email: Joi.string().pattern(emailRegexp).required(),
 });
 
 const updateSubscriptScheme = Joi.object({
